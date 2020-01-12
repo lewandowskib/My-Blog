@@ -27,14 +27,16 @@ def index():
 
 @app.route('/admin', methods=['GET', 'POST'])
 def all_posts():
-    form = LoginForm()
+    form = RegistrationForm()
     posts = Post.query.order_by(desc(Post.date_posted)).all()
     return render_template("admin_panel/all_posts.html", posts=posts, form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = LoginForm()
+    form = RegistrationForm()
+
+    
     return render_template("registration.html", form=form)
 
 
@@ -99,7 +101,8 @@ def new():
                         content=post_content, author=post_author)
         db.session.add(new_post)
         db.session.commit()
-        return redirect('/posts')
+        print("gitara")
+        return redirect('/')
     else:
         return render_template("admin_panel/new_post.html")
 
@@ -116,7 +119,7 @@ def delete(id):
     post = Post.query.get_or_404(id)
     db.session.delete(post)
     db.session.commit()
-    return redirect('/posts')
+    return redirect('/')
 
 
 @app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])

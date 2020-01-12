@@ -35,6 +35,22 @@ textarea.form-control {
     margin-top: 10px;
 }
 
+/* Home Page */
+
+.carousel-item>img {
+    filter: brightness(50%);
+}
+
+.carousel-caption>h5 {
+    font-size: 2.1rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.315);
+}
+
+.carousel-caption>p {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.315);
+}
+
 /* Instruction */
 .jumbotron {
     background-color: rgba(65, 42, 107, 0.746);
@@ -56,7 +72,7 @@ textarea.form-control {
     object-fit: cover;
 }
 
-/* Post  */
+/* Post */
 .post {
     width: auto;
     padding: 15px;
@@ -145,4 +161,8 @@ content>p {
 */
 .ico {
     margin-right: 5px;
+}
+/* Registration */
+.form-signin{
+    width: 300px;
 }

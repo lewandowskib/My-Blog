@@ -18,7 +18,7 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">My Blog</a>
+    <a class="navbar-brand" href="/">My Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
       aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
             <div class="form-group">
               {{form.email.label}}
               {% if form.email.errors %}
-              {{ form.email}}
+              {{ form.email(class="form-control")}}
               <div class="errors">
                 {% for error in form.email.errors %}
                 <small>{{ error(class="text-danger") }}</small>
@@ -56,7 +56,7 @@
             <div class="form-group">
               {{form.password.label}}
               {% if form.password.errors %}
-              {{form.password}}
+              {{form.password (class="form-control")}}
               <div class="errors">
                 {% for error in form.password.errors %}
                 <small>{{ error (class="text-danger") }}</small>
