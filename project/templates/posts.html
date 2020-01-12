@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>New Post</title>
+{% endblock head%}
+
+{% block body %}
+<div class="post-container">
+    <br>
+    <h1>Posty</h1>
+    <div class="row">
+        {% for post in posts%}
+        <div class="col-sm">
+            <div class="card mb-4">
+                <img src="../static/img/{{post.image_file}}" class="card-img-top img-fluid" alt="obrazek">
+                <div class="card-body">
+                    <h2 class="card-title">{{post.title}}</h3>
+                        <p class="card-text">
+                            <p>{{post.content|truncate(160)}}</p>
+                        </p>
+                        <p class="card-text"><small class="text-muted">Written by: {{post.author}} on
+                                {{post.date_posted.strftime('%d-%m-%Y')}}</small>
+                        </p>
+                        <a href="/posts/more/{{post.id}}" class="btn btn-outline-primary">Czytaj więcej</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{% endblock body %}

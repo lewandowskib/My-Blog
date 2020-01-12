@@ -1,0 +1,63 @@
+ <div class="menu">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">My blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" class="sr-only" href="/info">Introduce</a>
+          </li>
+        </ul>
+        <div class="btn-group">
+          <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" data-display="static"
+            aria-haspopup="true" aria-expanded="false">
+            Log in
+          </button>
+          <div class="dropdown-menu">
+            <form class="px-4 py-3" method="POST">
+              {{ form.hidden_tag() }}
+              <div class="form-group">
+                {{form.email.label}}
+                {% if form.email.errors %}
+                {{ form.email}}
+                <div class="errors">
+                  {% for error in form.email.errors %}
+                  <small>{{ error(class="text-danger") }}</small>
+                </div>
+                {% endfor %}
+                {% else%}
+                {{form.email(class="form-control")}}
+                {% endif %}
+              </div>
+              <div class="form-group">
+                {{form.password.label}}
+                {% if form.password.errors %}
+                {{form.password}}
+                <div class="errors">
+                  {% for error in form.password.errors %}
+                  <small>{{ error (class="text-danger") }}</small>
+                </div>
+                {% endfor %}
+                {% else %}
+                {{form.password(class="form-control")}}
+                {% endif %}
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/register">New around here? Sign up</a>
+            <a class="dropdown-item" href="#">Forgot password?</a>
+          </div>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>

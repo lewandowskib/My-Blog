@@ -1,0 +1,148 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+}
+.container{background-color: black;}
+textarea.form-control {
+    height: 600px;
+}
+
+.container>nav {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+
+.nav-link {
+    text-align: left;
+}
+
+.nav-link:hover {
+    color: rgb(65, 179, 250);
+}
+
+.px-4 {
+    margin-top: 10px;
+}
+
+/* Instruction */
+.jumbotron {
+    background-color: rgba(65, 42, 107, 0.746);
+    color: whitesmoke;
+}
+
+.card {
+    min-width: 300px;
+    margin: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.26);
+}
+
+.row {
+    border-top: 1px solid rgba(0, 0, 0, 0.246);
+}
+
+.card>img {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Post  */
+.post {
+    width: auto;
+    padding: 15px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.5);
+}
+
+.post>header {
+    width: 100%;
+    height: auto;
+}
+
+header>h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px white;
+}
+
+header>p {
+    font-size: 0.9rem;
+}
+
+header>img {
+    width: 100%;
+    object-fit: cover;
+}
+
+content>p {
+    margin-top: 30px;
+    line-height: 1.5;
+    letter-spacing: initial;
+}
+
+.comments-container>h4 {
+    padding: 10px 0px 10px 0px;
+}
+
+.comment {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.198);
+    padding: 10px 0px 10px 0px;
+}
+
+.comments-container>.d-flex {
+    margin-top: 10px;
+}
+
+.media {
+    padding: 20px 0px 20px 0px;
+}
+
+.media img {
+    min-width: 74x;
+    height: 64px;
+    object-fit: cover;
+}
+
+.media-body p {
+    min-width: 50%;
+}
+
+.comment-intera {
+    margin-top: -15px;
+}
+
+
+.form-group>label {
+    padding: 10px 0px 10px 0px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(77, 77, 77, 0.616);
+}
+
+.btn {
+    font-weight: 600;
+}
+
+
+/* Admin Panel */
+.table {
+    margin-top: 10px;
+}
+
+form {
+    margin-top: -50px;
+    margin-bottom: 20px;
+}
+
+.ico {
+    margin-right: 5px;
+}

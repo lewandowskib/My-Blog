@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>New Post</title>
+{% endblock head%}
+
+{% block body %}
+<div class="container">
+    <div class="post">
+        <header>
+            <h1>{{posts.title}}</h1>
+            <p> Written by: {{posts.author}} on
+                {{posts.date_posted.strftime('%d-%m-%Y')}}</p>
+            <img src="../../static/img/{{posts.image_file}}" alt="img">
+        </header>
+        <content>
+            <p class="text-justify">{{posts.content}}</p>
+        </content>
+
+    </div>
+    <div class="comments-container">
+        <nav class="d-flex justify-content-between">
+            <h5><i class="far fa-comments"></i> 7 Comments</h5>
+            <div class="form-group .container-fluid-2 float-right">
+                <select id="inputState" class="form-control">
+                    <option hidden>Sort by date</option>
+                    <option>Newest</option>
+                    <option>Oldest</option>
+                </select>
+            </div>
+        </nav>
+        <div class="comment">
+            <div class="media d-flex flex-row">
+                <img src="../../static/img/awatar.jpg" class="mr-3" alt="...">
+                <div class="media-body">
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                        Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
+                        ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <div class="comment-intera">
+                        <a href="">Replay</a>
+                    </div>
+                    <div class="media mt-3">
+                        <a class="mr-3" href="#">
+                            <img src="../../static/img/awatar.jpg" class="mr-3" alt="...">
+                        </a>
+                        <div class="media-body">
+                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                sollicitudin.
+                                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
+                                nunc
+                                ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. <br>
+                                <div class="comment-intera">
+                                    <a href="">Replay</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="comment">
+            <div class="media">
+                <img src="../../static/img/awatar.jpg" class="mr-3" alt="...">
+                <div class="media-body">
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                        Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
+                        ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <div class="comment-intera">
+                            <a href="">Replay</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <form action="">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Leave a comment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary">Add a comment</button>
+        </form>
+    </div>
+</div>
+{% endblock body %}
