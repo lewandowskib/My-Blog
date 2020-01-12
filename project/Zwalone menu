@@ -1,4 +1,4 @@
- <div class="menu">
+  <div class="menu">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/">My blog</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
