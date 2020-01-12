@@ -7,7 +7,21 @@
 {% block body %}
 <div class="post-container">
     <br>
-    <h1>Posty</h1>
+    <nav class="d-flex justify-content-between">
+        <h1>Posty</h1>
+        <form action='/' method="POST">
+            <div class="input-group">
+                <select class="custom-select" name="comp_select" id="inputGroupSelect04">
+                    <option hidden>Choose...</option>
+                    <option value="1">Oldest</option>
+                    <option value="2">Newest</option>
+                </select>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary" type="button">Button</button>
+                </div>
+            </div>
+        </form>
+    </nav>
     <div class="row">
         {% for post in posts%}
         <div class="col-sm">

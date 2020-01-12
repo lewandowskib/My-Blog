@@ -4,15 +4,19 @@ from project import app, db
 from datetime import datetime
 from project.model import Post, User
 from project.form import RegistrationForm, LoginForm
-from sqlalchemy import desc
+from sqlalchemy import desc, asc
 from werkzeug.utils import secure_filename
 
 
 @app.route('/', methods=['GET', 'POST'])
 def posts():
+    select = request.form.get('comp_select')
     form = LoginForm()
-    posts = Post.query.order_by(desc(Post.date_posted)).all()
-    return render_template("posts.html", posts=posts , form=form)
+    if str(select) == "2":
+        posts = Post.query.order_by(asc(Post.date_posted)).all()
+    else:
+        posts = Post.query.order_by(desc(Post.date_posted)).all()
+    return render_template("posts.html", posts=posts, form=form)
 
 
 @app.route('/info')
@@ -25,20 +29,20 @@ def index():
 def all_posts():
     form = LoginForm()
     posts = Post.query.order_by(desc(Post.date_posted)).all()
-    return render_template("admin_panel/all_posts.html", posts=posts, form = form)
+    return render_template("admin_panel/all_posts.html", posts=posts, form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = LoginForm()
-    return render_template("registration.html", form = form )
+    return render_template("registration.html", form=form)
 
 
 @app.route('/admin/modify', methods=['GET', 'POST'])
 def modify():
     form = LoginForm()
     posts = Post.query.order_by(desc(Post.date_posted)).all()
-    return render_template("admin_panel/modify_posts.html", posts=posts, form = form)
+    return render_template("admin_panel/modify_posts.html", posts=posts, form=form)
 
 
 # Login in
@@ -47,9 +51,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
 
-
-        return redirect('/success')
-    return render_template('submit.html', form=form)
+        print('/success')
+    return render_template('posts.html', form=form)
 
 # Registration
 @app.route('/registration', methods=['GET', 'POST'])
@@ -57,11 +60,12 @@ def ragistration():
     form = RegistrationForm()
     if form.validate_on_submit():
 
-
         return redirect('/success')
     return render_template('submit.html', form=form)
 
 # Chacking file img
+
+
 def allowed_image(filename):
 
     # Only want files with a . in the filename
@@ -104,7 +108,7 @@ def new():
 def more(id):
     form = RegistrationForm()
     posts = Post.query.get_or_404(id)
-    return render_template("post.html", posts=posts , form=form)
+    return render_template("post.html", posts=posts, form=form)
 
 
 @app.route('/posts/delete/<int:id>', methods=['GET', 'POST'])
