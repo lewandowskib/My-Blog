@@ -38,7 +38,7 @@
           Log in
         </button>
         <div class="dropdown-menu">
-          <form class="px-4 py-3" method="POST">
+          <form action='/login' class="px-4 py-3" method="POST">
             {{ form.hidden_tag() }}
             <div class="form-group">
               {{form.email.label}}
@@ -69,7 +69,7 @@
             <button type="submit" class="btn btn-primary">Sign in</button>
           </form>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/register">New around here? Sign up</a>
+          <a class="dropdown-item" href="/registration">New around here? Sign up</a>
           <a class="dropdown-item" href="#">Forgot password?</a>
         </div>
         <form class="form-inline my-2 my-md-0">

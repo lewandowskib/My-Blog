@@ -1,47 +1,95 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block head %}
-<link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
-<title>Sign in</title>
-{% endblock head%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
+    <script src="https://kit.fontawesome.com/f4c2c448cc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/reset.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/stylee.css')}}">
+    <title>Sign in</title>
+</head>
 
-{% block body %}
+<body>
+    <div class="d-flex justify-content-center align-items-center">
+        <form action='/registration' class="form-signin" method="POST">
+            {{form.csrf_token}}
+            <img class="mb-1" src="../static/img/register.png" alt="" width="72" height="72">
+            <div class="pure-control-group">
+                {{form.username.label}}
+                {% if form.username.errors %}
+                {{form.username(class="form-control form-control-lg is-invalid")}}
+                <div class="errors">
+                    {% for error in form.username.errors %}
+                    <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+                {% else%}
+                {{form.username(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="pure-control-group">
+                {{form.email.label}}
+                {% if form.email.errors %}
+                {{form.email(class="form-control form-control-lg is-invalid")}}
+                <div class="errors">
+                    {% for error in form.email.errors %}
+                    <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+                {% else%}
+                {{form.email(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
 
-<div class="d-flex justify-content-center align-items-center">
-    <form class="form-signin" method="POST">
-        {{ form.csrf_token }}
-        <img class="mb-1" src="../static/img/register.png" alt="" width="72" height="72">
-        <br>
-        {{ form.username.label}}
-        {{ form.username (class="form-control")}}
-        {% for error in form.username.errors %}
-        <small>{{ error(class="text-danger") }}</small>
-        {% endfor %}
+            <div class="pure-control-group">
+                {{form.password.label}}
+                {% if form.password.errors %}
+                {{form.password(class="form-control form-control-lg is-invalid")}}
+                <div class="errors">
+                    {% for error in form.password.errors %}
+                    <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+                {% else%}
+                {{form.password(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="pure-control-group">
+                {{form.confirm_password.label}}
+                {% if form.confirm_password.errors %}
+                {{form.confirm_password(class="form-control form-control-lg is-invalid")}}
+                <div class="errors">
+                    {% for error in form.confirm_password.errors %}
+                    <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+                {% else%}
+                {{form.confirm_password(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="pure-control-group" style="display: none;">
+                {{form.permission.label}}
+                {% if form.permission.errors %}
+                {{form.permission(class="form-control form-control-lg")}}
+                <div class="errors">
+                    {% for error in form.permission.errors %}
+                    <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+                {% else%}
+                {{form.permission}}
+                {% endif %}
+            </div>
+            {{form.submit(class="btn btn-secondary")}}
+            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+        </form>
+    </div>
 
-        {{ form.email.label }}
-        {{ form.email (class="form-control")}}
-        {% for error in form.email.errors %}
-        <small>{{ error(class="text-danger") }}</small>
-        {% endfor %}
-        {{ form.password.label}}
-        {{ form.password (class="form-control")}}
-
-        {% for error in form.password.errors %}
-        <small>{{ error(class="text-danger") }}</small>
-
-        {% endfor %}
-        {{ form.confirm_password.label}}
-        {{ form.confirm_password (class="form-control")}}
-
-        {% for error in form.confirm_password.errors %}
-        <small>{{ error(class="text-danger") }}</small>
-
-        {% endfor %}
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-    </form>
-</div>
-{% endblock body %}
+</body>
 
 </html>

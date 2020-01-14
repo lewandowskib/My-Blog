@@ -1,6 +1,6 @@
 from flask import *
 import os
-from project import app, db
+from project import app, db, bcrypt
 from datetime import datetime
 from project.model import Post, User
 from project.form import RegistrationForm, LoginForm
@@ -32,14 +32,6 @@ def all_posts():
     return render_template("admin_panel/all_posts.html", posts=posts, form=form)
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegistrationForm()
-
-    
-    return render_template("registration.html", form=form)
-
-
 @app.route('/admin/modify', methods=['GET', 'POST'])
 def modify():
     form = LoginForm()
@@ -52,18 +44,27 @@ def modify():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-
-        print('/success')
-    return render_template('posts.html', form=form)
-
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            print("Działa")
+            return ('/')
+        else:
+            print("Dupa")
+            return redirect ('/info')
 # Registration
 @app.route('/registration', methods=['GET', 'POST'])
 def ragistration():
     form = RegistrationForm()
     if form.validate_on_submit():
-
-        return redirect('/success')
-    return render_template('submit.html', form=form)
+        hashed_password = bcrypt.generate_password_hash(
+            form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data,
+                    password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        return redirect('/')
+    else:
+        return render_template("registration.html", form=form)
 
 # Chacking file img
 
