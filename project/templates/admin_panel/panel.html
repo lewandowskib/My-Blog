@@ -51,9 +51,15 @@
                     </h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/admin/users">
                                 <span data-feather="file-text"></span>
                                 <i class="ico fas fa-users"></i> All users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/add_user">
+                                <span data-feather="file-text"></span>
+                                <i class="ico fas fa-plus"></i> Add user
                             </a>
                         </li>
                         <li class="nav-item">
@@ -78,9 +84,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{url_for('logout')}}">
                                 <span data-feather="file-text"></span>
-                                <i class="ico fas fa-sign-out-alt"></i> Log out
+                                <i class="ico fas fa-sign-out-alt" ></i> Log out
                             </a>
                         </li>
                     </ul>

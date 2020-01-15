@@ -73,6 +73,7 @@
                 </div>
             </div>
         </div>
+        {% if current_user.is_authenticated %}
         <form action="">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Leave a comment</label>
@@ -80,6 +81,13 @@
             </div>
             <button type="button" class="btn btn-primary">Add a comment</button>
         </form>
+        {% else %}
+        <div class="alert alert-primary" role="alert">
+            You need to login to leave a comment!
+        </div>
+        {% endif %}
+
+
     </div>
 </div>
 {% endblock body %}

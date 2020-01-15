@@ -4,6 +4,7 @@ from project import app, db, bcrypt
 from datetime import datetime
 from project.model import Post, User
 from project.form import RegistrationForm, LoginForm
+from flask_login import current_user, login_user, logout_user
 from sqlalchemy import desc, asc
 from werkzeug.utils import secure_filename
 
@@ -24,7 +25,7 @@ def index():
     form = LoginForm()
     return render_template("index.html", form=form)
 
-
+# Admin Panel pages
 @app.route('/admin', methods=['GET', 'POST'])
 def all_posts():
     form = RegistrationForm()
@@ -39,18 +40,58 @@ def modify():
     return render_template("admin_panel/modify_posts.html", posts=posts, form=form)
 
 
+@app.route('/admin/users', methods=['GET', 'POST'])
+def all_users():
+    users = User.query.all()
+    return render_template("admin_panel/all_users.html", users=users)
+
+# Adding user
+@app.route('/admin/add_user', methods=['GET', 'POST'])
+def add_user():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(
+            form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data,
+                    password=hashed_password, permissions=form.permission.data)
+        db.session.add(user)
+        db.session.commit()
+        return redirect('/')
+    else:
+        return render_template("admin_panel/new_user.html", form=form)
+
+
+# Delating user
+@app.route('/users/delete_user/<int:id>', methods=['GET', 'POST'])
+def delete_user(id):
+    user = User.query.get_or_404(id)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect('/admin/users')
+
 # Login in
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    posts = Post.query.order_by(desc(Post.date_posted)).all()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            print("Działa")
-            return ('/')
+            login_user(user)
+            if user.permissions == "admin":
+                return redirect('/admin')
+            else:
+                return redirect('/')
         else:
-            print("Dupa")
-            return redirect ('/info')
+            return render_template('posts.html', form=form, posts=posts)
+
+# Logout
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect('/')
+
+
 # Registration
 @app.route('/registration', methods=['GET', 'POST'])
 def ragistration():

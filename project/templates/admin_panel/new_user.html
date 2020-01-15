@@ -1,0 +1,85 @@
+{% extends "admin_panel/panel.html" %}
+
+{% block head %}
+<title>New User</title>
+{% endblock head%}
+
+{% block body %}
+<div class="d-flex justify-content-center align-items-center">
+    <form action='/admin/add_user' class="form-signin" method="POST">
+        {{form.csrf_token}}
+        <img class="mb-1" src="../static/img/register.png" alt="" width="72" height="72">
+        <div class="pure-control-group">
+            {{form.username.label}}
+            {% if form.username.errors %}
+            {{form.username(class="form-control form-control-lg is-invalid")}}
+            <div class="errors">
+                {% for error in form.username.errors %}
+                <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% else%}
+            {{form.username(class="form-control form-control-lg")}}
+            {% endif %}
+        </div>
+        <div class="pure-control-group">
+            {{form.email.label}}
+            {% if form.email.errors %}
+            {{form.email(class="form-control form-control-lg is-invalid")}}
+            <div class="errors">
+                {% for error in form.email.errors %}
+                <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% else%}
+            {{form.email(class="form-control form-control-lg")}}
+            {% endif %}
+        </div>
+
+        <div class="pure-control-group">
+            {{form.password.label}}
+            {% if form.password.errors %}
+            {{form.password(class="form-control form-control-lg is-invalid")}}
+            <div class="errors">
+                {% for error in form.password.errors %}
+                <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% else%}
+            {{form.password(class="form-control form-control-lg")}}
+            {% endif %}
+        </div>
+        <div class="pure-control-group">
+            {{form.confirm_password.label}}
+            {% if form.confirm_password.errors %}
+            {{form.confirm_password(class="form-control form-control-lg is-invalid")}}
+            <div class="errors">
+                {% for error in form.confirm_password.errors %}
+                <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% else%}
+            {{form.confirm_password(class="form-control form-control-lg")}}
+            {% endif %}
+        </div>
+        <div class="pure-control-group">
+            {{form.permission.label}}
+            {% if form.permission.errors %}
+            {{form.permission(class="custom-select")}}
+            <div class="errors">
+                {% for error in form.permission.errors %}
+                <small>{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% else%}
+            {{form.permission(class="custom-select")}}
+            {% endif %}
+        </div>
+        <br>
+        {{form.submit(class="btn btn-secondary")}}
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
+</div>
+
+
+{% endblock body %}

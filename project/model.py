@@ -1,8 +1,13 @@
-from project import db
+from project import db, login
 from datetime import datetime
+from flask_login import UserMixin
 
 
-class User(db.Model):
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
     email = db.Column(db.String(70), nullable=False, unique=True)

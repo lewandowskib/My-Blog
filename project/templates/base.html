@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="/">My Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
       aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,13 +32,29 @@
           <a class="nav-link" href="/info">Introduce</a>
         </li>
       </ul>
+      {% if current_user.is_authenticated %}
+      <div class="btn-group">
+        {% if current_user.permissions == 'admin' %}
+        <div class="dropdown-menu dropdown-menu-right text-center">
+          <a class=" btn btn-link" href="/admin">Admin Panel</a>
+        </div>
+        {% endif %}
+        <button type="button" class="btn dropdown-toggle btn-link" data-toggle="dropdown">
+          {{current_user.username}}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right text-center">
+          <a class=" btn btn-link" href="{{url_for('logout')}}">Logout</a>
+        </div>
+      </div>
+
+      {%else%}
       <div class="btn-group">
         <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" data-display="static"
           aria-haspopup="true" aria-expanded="false">
           Log in
         </button>
         <div class="dropdown-menu">
-          <form action='/login' class="px-4 py-3" method="POST">
+          <form action="/login" class="px-4 py-3" method="POST">
             {{ form.hidden_tag() }}
             <div class="form-group">
               {{form.email.label}}
@@ -72,10 +88,12 @@
           <a class="dropdown-item" href="/registration">New around here? Sign up</a>
           <a class="dropdown-item" href="#">Forgot password?</a>
         </div>
+        {% endif %}
         <form class="form-inline my-2 my-md-0">
           <input class="form-control" type="text" placeholder="Search">
         </form>
       </div>
+
   </nav>
 
   <div class="container">
