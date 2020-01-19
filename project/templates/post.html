@@ -20,73 +20,65 @@
     </div>
     <div class="comments-container">
         <nav class="d-flex justify-content-between">
-            <h5><i class="far fa-comments"></i> 7 Comments</h5>
-            <div class="form-group .container-fluid-2 float-right">
-                <select id="inputState" class="form-control">
-                    <option hidden>Sort by date</option>
-                    <option>Newest</option>
-                    <option>Oldest</option>
-                </select>
-            </div>
+            <h5><i class="far fa-comments"></i> {{ comments_count }} Comments</h5>
+            <form action='/post/more/{{posts.id}}' method="POST">
+                <div class="input-group">
+                    <select class="custom-select" name="comment_select" id="inputGroupSelect04">
+                        <option hidden>Choose...</option>
+                        <option value="1">Oldest</option>
+                        <option value="2">Newest</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                </div>
+            </form>
         </nav>
+        {% for comment in comments %}
+        {% if comment.post_id == posts.id %}
+        <img src="../../static/img/awatar.jpg" style="height: 70px" class="mr-3 float-left">
         <div class="comment">
-            <div class="media d-flex flex-row">
-                <img src="../../static/img/awatar.jpg" class="mr-3" alt="...">
-                <div class="media-body">
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                        Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
-                        ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <div class="media d-flex flex-column">
+                {% for user in users %}
+                {% if comment.author == user.id %}
+                <div class="Author p-2 bd-highlight">
+                    <h5 class="mt-0"> {{user.username}}</h5>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <div class="content p-2 bd-highlight">
+                    <p>{{comment.body}}</p>
+                </div>
+                <div class="media-body p-2 bd-highlight">
+                    <div class="date">
+                        <small>{{comment.time.strftime('%d-%m-%Y')}}</small>
+                    </div>
                     <div class="comment-intera">
-                        <a href="">Replay</a>
-                    </div>
-                    <div class="media mt-3">
-                        <a class="mr-3" href="#">
-                            <img src="../../static/img/awatar.jpg" class="mr-3" alt="...">
-                        </a>
-                        <div class="media-body">
-                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin.
-                                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
-                                nunc
-                                ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. <br>
-                                <div class="comment-intera">
-                                    <a href="">Replay</a>
-                                </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="comment">
-            <div class="media">
-                <img src="../../static/img/awatar.jpg" class="mr-3" alt="...">
-                <div class="media-body">
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                        Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
-                        ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        <div class="comment-intera">
-                            <a href="">Replay</a>
-                        </div>
-                </div>
+            {% if current_user.permissions == 'admin' %}
+            <div class="delete">
+                <a href="/post/more/deletecom/{{comment.id}}" class="btn btn-danger">Delete</a>
             </div>
+            {%endif%}
         </div>
+        {%endif%}
+        {% endfor %}
         {% if current_user.is_authenticated %}
-        <form action="">
+        <form action="/post/more/{{posts.id}}" method="POST">
+            {{form.csrf_token}}
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Leave a comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                {{comment.Comment.label}}
+                {{comment.Comment(class="form-control")}}
             </div>
-            <button type="button" class="btn btn-primary">Add a comment</button>
+            {{comment.submit(class="btn btn-secondary")}}
         </form>
         {% else %}
         <div class="alert alert-primary" role="alert">
             You need to login to leave a comment!
         </div>
         {% endif %}
-
 
     </div>
 </div>

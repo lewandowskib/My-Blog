@@ -1,6 +1,7 @@
 {% extends "admin_panel/panel.html" %}
 
 {% block head %}
+
 <title>New Post</title>
 {% endblock head%}
 
@@ -9,7 +10,7 @@
     <form action="/admin/new" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="file">Thumbnail</label>
-            <input type="file" class="form-control-file" name="file" id="file">
+            <input type="file" class=" form-control-file" name="file" id="file">
         </div>
         <label for="title">
             <h5>Title:</h5>
@@ -20,7 +21,7 @@
         <label for="content">
             <h5>Content:</h4>
         </label>
-        <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+        <textarea class="post-content form-control" id="content" name="content" rows="3"></textarea>
         <br>
 
         <label for="title">
