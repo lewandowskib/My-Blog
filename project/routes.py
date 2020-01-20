@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 def posts():
     select = request.form.get('comp_select')
     form = LoginForm()
-    if str(select) == "2":
+    if str(select) == "1":
         posts = Post.query.order_by(asc(Post.date_posted)).all()
     else:
         posts = Post.query.order_by(desc(Post.date_posted)).all()
