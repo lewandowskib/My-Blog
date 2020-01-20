@@ -10,17 +10,10 @@
     <br>
     <form action="/posts/edit/{{post.id}}" method="POST" enctype="multipart/form-data">
         <label for="edit_title">
-            <h5>Thambneil</h5>
         </label>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-            </div>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" name="edit_file" id="file"
-                    aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01">{{post.image_file}}</label>
-            </div>
+        <div class="form-group">
+            <label for="file">Thumbnail</label>
+            <input type="file" class=" form-control-file" name="edit_file" id="file" >
         </div>
 
         <label for="edit_title">
@@ -33,14 +26,14 @@
         <label for="edit_content">
             <h5>Content:</h4>
         </label>
-        <textarea class="form-control post-content" id="content" name="edit_content" rows="3">
+        <textarea class="form-control" id="content" name="edit_content" rows="25">
             {{post.content}}
-        </textarea>      <br>
+        </textarea><br>
 
         <label for="edit_author">
             <h5>Author:</h5>
         </label>
-        <input type="text" class="form-control" id="title" name="author" aria-describedby="title"
+        <input type="text" class="form-control" id="title" name="edit_author" aria-describedby="title"
             value="{{post.author}}">
 
         <br>

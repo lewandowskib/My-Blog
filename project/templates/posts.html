@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>New Post</title>
+<title>My Blog</title>
 {% endblock head%}
 
 {% block body %}
@@ -75,7 +75,7 @@
                         <p class="card-text"><small class="text-muted">Written by: {{post.author}} on
                                 {{post.date_posted.strftime('%d-%m-%Y')}}</small>
                         </p>
-                        <a href="/post/more/{{post.id}}" class="btn btn-outline-primary">Czytaj więcej</a>
+                        <a href="/post/more/{{post.id}}" class="btn btn-outline-primary">Read more</a>
                 </div>
             </div>
         </div>

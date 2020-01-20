@@ -11,10 +11,6 @@ a {
     text-decoration: none;
 }
 
-.post-content {
-    height: 600px;
-}
-
 .container>nav {
     height: 100%;
     position: fixed;
@@ -37,7 +33,7 @@ a {
 
 /* Home Page */
 
-.btn-group{
+.btn-group {
     margin-right: 135px;
 }
 
@@ -59,21 +55,24 @@ a {
 }
 
 /* Instruction */
-.jumbotron {
-    background-color: rgba(65, 42, 107, 0.746);
-    color: whitesmoke;
+
+.starter-template {}
+
+.starter-template>h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.column {
+    border: 1px solid rgba(0, 0, 0, 0.171);
 }
 
 .card {
     max-width: 500px;
     min-width: 300px;
-
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.26);
 }
 
-.row {
-    border-top: 1px solid rgba(0, 0, 0, 0.246);
-}
 
 .card>img {
     height: 300px;
@@ -163,7 +162,8 @@ content>p {
 .btn {
     font-weight: 600;
 }
-.delete>a{
+
+.delete>a {
     margin-top: -150px;
 }
 

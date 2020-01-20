@@ -10,24 +10,24 @@
     <form action="/admin/new" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="file">Thumbnail</label>
-            <input type="file" class=" form-control-file" name="file" id="file">
+            <input type="file" class=" form-control-file" name="file" id="file" required>
         </div>
         <label for="title">
             <h5>Title:</h5>
         </label>
-        <input type="text" class="form-control" id="title" name="title" aria-describedby="title">
+        <input type="text" class="form-control" id="title" name="title" aria-describedby="title" required>
 
         <br>
         <label for="content">
             <h5>Content:</h4>
         </label>
-        <textarea class="post-content form-control" id="content" name="content" rows="3"></textarea>
+        <textarea class="form-control" id="content" name="content" rows="25" required></textarea>
         <br>
 
         <label for="title">
             <h5>Author:</h5>
         </label>
-        <input type="text" class="form-control" id="title" name="author" aria-describedby="title">
+        <input type="text" class="form-control" id="title" name="author" aria-describedby="title" required>
 
         <br>
         <button type="submit" class="btn btn-primary">Add post</button>

@@ -10308,3 +10308,10 @@ a.text-dark:hover, a.text-dark:focus {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+/* Introduce */ 
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
