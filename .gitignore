@@ -4,3 +4,5 @@ project/__pycache__/__init__.cpython-37.pyc
 project/__pycache__/form.cpython-37.pyc
 project/__pycache__/app.cpython-37.pyc
 project/.vscode/launch.json
+.vscode/launch.json
+__pycache__/app.cpython-37.pyc
