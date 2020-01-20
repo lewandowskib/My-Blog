@@ -69,13 +69,13 @@
                 <img src="../static/img/{{post.image_file}}" class="card-img-top img-fluid" alt="obrazek">
                 <div class="card-body">
                     <h4 class="card-title">{{post.title}}</h4>
-                        <p class="card-text">
-                            <p>{{post.content|truncate(160)}}</p>
-                        </p>
-                        <p class="card-text"><small class="text-muted">Written by: {{post.author}} on
-                                {{post.date_posted.strftime('%d-%m-%Y')}}</small>
-                        </p>
-                        <a href="/post/more/{{post.id}}" class="btn btn-outline-primary">Read more</a>
+                    <p class="card-text">
+                        <p>{{post.content|truncate(160)}}</p>
+                    </p>
+                    <p class="card-text"><small class="text-muted">Written by: {{post.author}} on
+                            {{post.date_posted.strftime('%d-%m-%Y')}}</small>
+                    </p>
+                    <a href="/post/more/{{post.id}}" class="btn btn-outline-primary">Read more</a>
                 </div>
             </div>
         </div>
