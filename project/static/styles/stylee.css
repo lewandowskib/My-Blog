@@ -40,8 +40,8 @@ a {
 
 .carousel-item>img {
     filter: brightness(50%);
-    max-height: 500px;
-    height: 50%;
+    width:1280px;
+    height: 720px;
 }
 
 .carousel-caption>h5 {
@@ -56,8 +56,6 @@ a {
 
 /* Instruction */
 
-.starter-template {}
-
 .starter-template>h1 {
     font-size: 3rem;
     font-weight: 600;
@@ -68,7 +66,6 @@ a {
 }
 
 .card {
-    max-width: 500px;
     min-width: 300px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.26);
 }
@@ -173,11 +170,6 @@ content>p {
     margin-top: 10px;
 }
 
-/*form {
-    margin-top: -50px;
-    margin-bottom: 20px;
-}
-*/
 .ico {
     margin-right: 5px;
 }

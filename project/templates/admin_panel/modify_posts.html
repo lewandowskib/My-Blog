@@ -20,11 +20,11 @@
             {% for post in posts%}
             <tr>
                 <th scope="row">{{post.id}}</th>
-                <td><a href="../../../posts/more/{{post.id}}">{{post.title}}</a> </td>
+                <td><a href="../../../post/more/{{post.id}}">{{post.title}}</a> </td>
                 <td>{{post.author}}</td>
                 <td>{{post.date_posted.strftime('%d-%m-%Y')}}</td>
-                <td><a href="../../../posts/edit/{{post.id}}" class="btn btn-outline-primary">Modyfikuj</a></td>
-                <td><a href="../../../posts/delete/{{post.id}}" class="btn btn-outline-danger">Usuń</a></td>
+                <td><a href="../../../post/edit/{{post.id}}" class="btn btn-outline-primary">Modyfikuj</a></td>
+                <td><a href="../../../post/delete/{{post.id}}" class="btn btn-outline-danger">Usuń</a></td>
             </tr>
             {% endfor %}
     </table>

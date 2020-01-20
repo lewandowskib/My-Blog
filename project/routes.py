@@ -189,14 +189,14 @@ def deletecom(id):
         return redirect('/')
 
 # Deleting posts (Panel Admin in modify post section)
-@app.route('/posts/delete/<int:id>', methods=['GET', 'POST'])
+@app.route('/post/delete/<int:id>', methods=['GET', 'POST'])
 @login_required
 def delete(id):
     if current_user.permissions == 'admin':
         post = Post.query.get_or_404(id)
         db.session.delete(post)
         db.session.commit()
-        return redirect('admin_panel/posts/modify')
+        return redirect('/admin/modify')
     else:
         return redirect('/')
 
@@ -208,7 +208,7 @@ def allowed_file(filename):
 
 
 # Editing post
-@app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])
+@app.route('/post/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit(id):
     post = Post.query.get_or_404(id)
