@@ -1,5 +1,5 @@
 # Simple-Blog
-![Image of Project](https://ibb.co/9bnNtLh)
+![Image of Project](https://imgur.com/D7o9ylp)
 
 
 ###  Description
