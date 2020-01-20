@@ -5,6 +5,9 @@
 
 ###  Description
 
+### Installation
+- Install python3 and python3-pip on your system (example: apt install python3 python3-pip)
+- Install required libraries: pip install -r req.txt
 
 ######  Others
 [images](https://illlustrations.co)
