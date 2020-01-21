@@ -31,6 +31,21 @@ a {
     margin-top: 10px;
 }
 
+/* Menu */
+.dropdown-toggle {
+    color: whitesmoke;
+}
+
+.dropdown-toggle:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* Registration */
+.form-signin {
+    width: 300px;
+}
+
 /* Home Page */
 
 .btn-group {
@@ -54,17 +69,19 @@ a {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.315);
 }
 
-.image-container{
+.image-container {
     min-width: 300px;
     overflow: hidden;
 }
-.card{
+
+.card {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.26);
 }
 
 .image-container>img:hover {
     transform: scale(1.5);
     transition: 1s;
+    filter: brightness(60%);
 }
 
 
@@ -79,9 +96,7 @@ a {
     border: 1px solid rgba(0, 0, 0, 0.171);
 }
 
-
-
-/* Post */
+/* Single Post */
 .post {
     width: auto;
     padding: 15px;
@@ -181,7 +196,14 @@ content>p {
     margin-right: 5px;
 }
 
-/* Registration */
-.form-signin {
-    width: 300px;
+/* Footer */
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.719);
+    text-align: center;
+    color: whitesmoke;
+}
+footer > h5{
+    margin-top:12px;
 }

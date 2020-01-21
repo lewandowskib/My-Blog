@@ -18,7 +18,9 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top ">
-    <a class="navbar-brand align-middle" href="/">My Blog</a>
+    <a class="navbar-brand" href="/">
+      <h4>My Blog</h3>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
       aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,10 +28,10 @@
     <div class="collapse navbar-collapse" id="navbarsExample04">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link align-middle" href="/">Home</a>
+          <a class="nav-link " href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link align-middle" href="/info">Introduce</a>
+          <a class="nav-link" href="/info">Introduce</a>
         </li>
       </ul>
       {% if current_user.is_authenticated %}
@@ -49,7 +51,7 @@
 
       {%else%}
       <div class="btn-group">
-        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" data-display="static"
+        <button type="button" class="btn btn-link dropdown-toggle " data-toggle="dropdown" data-display="static"
           aria-haspopup="true" aria-expanded="false">
           Log in
         </button>
@@ -95,6 +97,10 @@
   <div class="container">
     {% block body %} {% endblock body%}
   </div>
+  <footer class="d-flex justify-content-center">
+    <h5 class="align-middle"> &copy; 2020 by <a  class='alert-link' href="https://github.com/funnycactus">funnycactus</a></h5>
+  </footer>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
