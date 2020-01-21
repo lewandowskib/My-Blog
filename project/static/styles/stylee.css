@@ -40,7 +40,7 @@ a {
 
 .carousel-item>img {
     filter: brightness(50%);
-    width:1280px;
+    width: 1280px;
     height: 720px;
 }
 
@@ -54,6 +54,20 @@ a {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.315);
 }
 
+.image-container{
+    min-width: 300px;
+    overflow: hidden;
+}
+.card{
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.26);
+}
+
+.image-container>img:hover {
+    transform: scale(1.5);
+    transition: 1s;
+}
+
+
 /* Instruction */
 
 .starter-template>h1 {
@@ -65,16 +79,7 @@ a {
     border: 1px solid rgba(0, 0, 0, 0.171);
 }
 
-.card {
-    min-width: 300px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.26);
-}
 
-
-.card>img {
-    height: 300px;
-    object-fit: cover;
-}
 
 /* Post */
 .post {
@@ -96,6 +101,8 @@ header>h1 {
 
 header>p {
     font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.376);
 }
 
 header>img {
@@ -106,7 +113,7 @@ header>img {
 
 content>p {
     margin-top: 30px;
-    line-height: 1.5;
+    line-height: 1.6;
     letter-spacing: initial;
 }
 
