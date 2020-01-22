@@ -30,9 +30,6 @@
         <li class="nav-item">
           <a class="nav-link " href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/info">Introduce</a>
-        </li>
       </ul>
       {% if current_user.is_authenticated %}
       <div class="btn-group">
@@ -98,7 +95,8 @@
     {% block body %} {% endblock body%}
   </div>
   <footer class="d-flex justify-content-center">
-    <h5 class="align-middle"> &copy; 2020 by <a  class='alert-link' href="https://github.com/funnycactus">funnycactus</a></h5>
+    <h5 class="align-middle"> &copy; 2020 by <a class='alert-link' href="https://github.com/funnycactus">funnycactus</a>
+    </h5>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

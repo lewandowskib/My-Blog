@@ -1,5 +1,5 @@
 # My Blog
-![Screenshot](https://user-images.githubusercontent.com/53121602/72750377-fd6eaa00-3bbc-11ea-85fd-7f2bd195b916.png)
+![Screenshot](https://user-images.githubusercontent.com/53121602/72887764-9eb84600-3d0c-11ea-9ccd-ab7ff66ae9c4.png)
 
 
 
