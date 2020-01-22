@@ -6,12 +6,12 @@ My blog is a simple Blog made with Flask, Bootstrap, Css and Html.
 
 ###  Admin Panel
 ![Admin Panel](https://user-images.githubusercontent.com/53121602/72889414-ee4c4100-3d0f-11ea-9089-2aab0fc5d4a7.png)
-As an Admin you can:
 - Adding new post
 - Deleting posts
 - Modifying posts
 - Adding new users (admin or user)
-
+- Deleting users
+- Deleting comments
 
 ### Installation
 - Install python3 and python3-pip on your system (example: apt install python3 python3-pip)
