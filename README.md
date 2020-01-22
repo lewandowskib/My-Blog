@@ -1,8 +1,6 @@
 # My Blog
-![Screenshot](https://user-images.githubusercontent.com/53121602/72887764-9eb84600-3d0c-11ea-9ccd-ab7ff66ae9c4.png)
-
-###  Description
 My blog is a simple Blog made with Flask, Bootstrap, Css and Html. 
+![Screenshot](https://user-images.githubusercontent.com/53121602/72887764-9eb84600-3d0c-11ea-9ccd-ab7ff66ae9c4.png)
 
 ###  Admin Panel
 ![Admin Panel](https://user-images.githubusercontent.com/53121602/72889414-ee4c4100-3d0f-11ea-9089-2aab0fc5d4a7.png)
